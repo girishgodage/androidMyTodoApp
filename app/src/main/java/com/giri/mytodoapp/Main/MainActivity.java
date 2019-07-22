@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import com.giri.mytodoapp.About.AboutActivity;
 import com.giri.mytodoapp.AppDefault.AppDefaultActivity;
 import com.giri.mytodoapp.R;
+import com.giri.mytodoapp.Settings.SettingsActivity;
 
 public class MainActivity extends AppDefaultActivity {
 
@@ -65,8 +66,8 @@ public class MainActivity extends AppDefaultActivity {
 //                this.recreate();
 //                return true;
             case R.id.preferences:
-               // Intent intent = new Intent(this, SettingsActivity.class);
-             //   startActivity(intent);
+                Intent intent = new Intent(this, SettingsActivity.class);
+                startActivity(intent);
                 return true;
 
             default:

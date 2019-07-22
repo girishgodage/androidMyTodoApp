@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.giri.mytodoapp.Analytics.AnalyticsApplication;
 import com.giri.mytodoapp.AppDefault.AppDefaultActivity;
 import com.giri.mytodoapp.Main.MainFragment;
 import com.giri.mytodoapp.R;
@@ -26,7 +27,7 @@ public class AboutActivity extends AppDefaultActivity {
     private TextView contactMe;
     String theme;
     //    private UUID mId;
-    //private AnalyticsApplication app;
+    private AnalyticsApplication app;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
