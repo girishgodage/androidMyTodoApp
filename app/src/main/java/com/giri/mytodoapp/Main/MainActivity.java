@@ -8,6 +8,7 @@ import android.support.v7.app.ActionBar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.giri.mytodoapp.About.AboutActivity;
 import com.giri.mytodoapp.AppDefault.AppDefaultActivity;
 import com.giri.mytodoapp.R;
 
@@ -40,5 +41,37 @@ public class MainActivity extends AppDefaultActivity {
         return true;
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.aboutMeMenuItem:
+                Intent i = new Intent(this, AboutActivity.class);
+                startActivity(i);
+                return true;
+//            case R.id.switch_themes:
+//                if(mTheme == R.style.CustomStyle_DarkTheme){
+//                    addThemeToSharedPreferences(LIGHTTHEME);
+//                }
+//                else{
+//                    addThemeToSharedPreferences(DARKTHEME);
+//                }
+//
+////                if(mTheme == R.style.CustomStyle_DarkTheme){
+////                    mTheme = R.style.CustomStyle_LightTheme;
+////                }
+////                else{
+////                    mTheme = R.style.CustomStyle_DarkTheme;
+////                }
+//                this.recreate();
+//                return true;
+            case R.id.preferences:
+               // Intent intent = new Intent(this, SettingsActivity.class);
+             //   startActivity(intent);
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
 }
