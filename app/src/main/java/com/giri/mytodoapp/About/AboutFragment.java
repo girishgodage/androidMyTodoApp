@@ -30,8 +30,8 @@ public class AboutFragment extends AppDefaultFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-    //    app = (AnalyticsApplication) getActivity().getApplication();
-    //    app.send(this);
+        app = (AnalyticsApplication) getActivity().getApplication();
+        app.send(this);
         mVersionTextView = (TextView) view.findViewById(R.id.aboutVersionTextView);
         mVersionTextView.setText(String.format(getResources().getString(R.string.app_version), appVersion));
         toolbar = (Toolbar) view.findViewById(R.id.toolbar);
@@ -41,7 +41,7 @@ public class AboutFragment extends AppDefaultFragment {
         contactMe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-             //   app.send(this, "Action", "Feedback");
+               app.send(this, "Action", "Feedback");
             }
         });
     }

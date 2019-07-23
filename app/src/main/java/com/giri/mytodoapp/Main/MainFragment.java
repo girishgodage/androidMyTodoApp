@@ -81,7 +81,7 @@ public class MainFragment extends AppDefaultFragment {
     public static final String THEME_SAVED = "com.girish.savedtheme";
     public static final String DARKTHEME = "com.girish.darktheme";
     public static final String LIGHTTHEME = "com.girish.lighttheme";
-   // private AnalyticsApplication app;
+    private AnalyticsApplication app;
 
     private String[] testStrings = {"Clean my room",
             "Water the plants",
@@ -92,7 +92,7 @@ public class MainFragment extends AppDefaultFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-       // app = (AnalyticsApplication)mytodoapp ;
+        app = (AnalyticsApplication) getActivity().getApplication();
 //        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
 //                .setDefaultFontPath("fonts/Aller_Regular.tff").setFontAttrId(R.attr.fontPath).build());
 
@@ -148,7 +148,7 @@ public class MainFragment extends AppDefaultFragment {
             @SuppressWarnings("deprecation")
             @Override
             public void onClick(View v) {
-            //    app.send(this, "Action", "FAB pressed");
+                app.send(this, "Action", "FAB pressed");
                 Intent newTodo = new Intent(getContext(), AddToDoActivity.class);
                 ToDoItem item = new ToDoItem("","", false, null);
                 int color = ColorGenerator.MATERIAL.getRandomColor();
@@ -242,7 +242,7 @@ public class MainFragment extends AppDefaultFragment {
     @Override
     public void onResume() {
         super.onResume();
-     //   app.send(this);
+        app.send(this);
 
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences(SHARED_PREF_DATA_SET_CHANGED, MODE_PRIVATE);
         if (sharedPreferences.getBoolean(ReminderFragment.EXIT, false)) {
@@ -274,7 +274,7 @@ public class MainFragment extends AppDefaultFragment {
 
     @Override
     public void onStart() {
-        //app = (AnalyticsApplication) getActivity().getApplication();
+        app = (AnalyticsApplication) getActivity().getApplication();
         super.onStart();
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences(SHARED_PREF_DATA_SET_CHANGED, MODE_PRIVATE);
         if (sharedPreferences.getBoolean(CHANGE_OCCURED, false)) {
@@ -452,7 +452,7 @@ public class MainFragment extends AppDefaultFragment {
         @Override
         public void onItemRemoved(final int position) {
             //Remove this line if not using Google Analytics
-            //app.send(this, "Action", "Swiped Todo Away");
+            app.send(this, "Action", "Swiped Todo Away");
 
             mJustDeletedToDoItem = items.remove(position);
             mIndexOfDeletedToDoItem = position;
@@ -468,7 +468,7 @@ public class MainFragment extends AppDefaultFragment {
                         public void onClick(View v) {
 
                             //Comment the line below if not using Google Analytics
-                           // app.send(this, "Action", "UNDO Pressed");
+                            app.send(this, "Action", "UNDO Pressed");
                             items.add(mIndexOfDeletedToDoItem, mJustDeletedToDoItem);
                             if (mJustDeletedToDoItem.getToDoDate() != null && mJustDeletedToDoItem.hasReminder()) {
                                 Intent i = new Intent(getContext(), TodoNotificationService.class);

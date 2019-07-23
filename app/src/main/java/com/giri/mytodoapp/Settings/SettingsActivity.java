@@ -21,13 +21,13 @@ public class SettingsActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-     //  app.send(this);
+       app.send(this);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-      //  app = (AnalyticsApplication) getApplication();
+        app = (AnalyticsApplication) getApplication();
         String theme = getSharedPreferences(MainFragment.THEME_PREFERENCES, MODE_PRIVATE).getString(MainFragment.THEME_SAVED, MainFragment.LIGHTTHEME);
         if (theme.equals(MainFragment.LIGHTTHEME)) {
             setTheme(R.style.CustomStyle_LightTheme);
